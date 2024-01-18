@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello WebSocket</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="stomp.min.js"></script>
+<!--     <script src="node_modules/stompjs/index.js"></script> -->
+    <script src="test_web_socket.js"></script>
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+    <div class="container">
+        <div class="py-5 text-center">
+            <a href="/"><h2>WebSocket</h2></a>
+            <p class="lead">WebSocket Broadcast - with STOMP</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input type="text" id="from" class="form-control" placeholder="Choose a nickname"/>
+                        <div class="btn-group">
+                            <button type="button" id="connect" class="btn btn-sm btn-outline-secondary" onclick="connect()">Connect</button>
+                        <button type="button" id="disconnect" class="btn btn-sm btn-outline-secondary" onclick="disconnect()" disabled>Disconnect</button>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="input-group" id="sendmessage" style="display: none;">
+                        <input type="text" id="message" class="form-control" placeholder="Message">
+                        <div class="input-group-append">
+                            <button id="send" class="btn btn-primary" onclick="send()">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="content"></div>
+                <div>
+                    <span class="float-right">
+                        <button id="clear" class="btn btn-primary" onclick="clearBroadcast()" style="display: none;">Clear</button>
+                    </span>
+                </div>                    
+            </div>
+        </div>
+    </div>
+</html>
